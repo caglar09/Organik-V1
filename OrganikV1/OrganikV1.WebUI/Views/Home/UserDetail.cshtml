@@ -1,0 +1,127 @@
+﻿@model OrganikV1.WebUI.ViewModel.HomeViewModel
+@{
+    ViewData["Title"] = "UserDetail";
+    Layout = "~/Views/Shared/_DetailLayout.cshtml";
+}
+<aside id="column-left" class="col-sm-12 col-md-3 col-lg-3 col-xs-12 ">
+    <div class="profilPic">
+        <img src="~/UserFiles/User/@Model.productUser.userPhoto.ToString()" alt="small banner" class="img-responsive" style="max-height: 250px;" />
+    </div>
+    <div class="box-category">
+        <div class="h4 text-center">@Model.productUser.name @Model.productUser.lastname</div>
+    </div>
+
+    <hr />
+
+    <div class="box-category">
+     
+        <ul id="cat_accordion">
+            <li class="cutom-parent-li">
+                <a href="#home" aria-controls="home" aria-selected="true" class="cutom-parent" id="home-tab" data-toggle="tab">Bilgiler</a>
+            </li>
+            <li class="cutom-parent-li">
+                <a href="#profile" aria-controls="profile" aria-selected="true" class="cutom-parent" id="profile-tab" data-toggle="tab">Ürünler</a>
+            </li>
+          
+        </ul>
+    </div>
+</aside>
+
+<div id="content" class="col-sm-9">
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade  active in" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+            <div class="col-sm-6">
+                <h5><b>Eposta</b></h5>
+                <p>
+                    @Html.Raw(Model.productUser.Email)
+                </p>
+                <hr />
+            </div>
+            <div class="col-sm-6">
+                <h5><b>Telefon Numarası</b></h5>
+                <p>
+                    @Html.Raw(Model.productUser.PhoneNumber)
+                </p>
+                <hr />
+            </div>
+
+            <div class="col-sm-12">
+                <h5><b>Profil Açıklaması</b></h5>
+                <p>
+                    @Html.Raw(Model.productUser.Content)
+                </p>
+                <hr />
+            </div>
+
+            <div class="col-sm-12">
+                <h5><b>Satıcı Adress</b></h5>
+                <p>
+                    @Html.Raw(Model.productUser.Adress)
+                </p>
+                <hr />
+            </div>
+            <div class="col-sm-12">
+                <h5><b>Sosyal Medya</b></h5>
+                <p>
+                    <div class="social">
+                        <a href="@Model.productUser.facebook" target="_blank">
+                            <img data-toggle="tooltip" src="~/image/socialicons/facebook.png" alt="Facebook" title="" data-original-title="Facebook">
+                        </a>
+                        <a href="@Model.productUser.twitter" target="_blank">
+                            <img data-toggle="tooltip" src="~/image/socialicons/twitter.png" alt="Twitter" title="" data-original-title="Twitter">
+                        </a>
+                        <a href="@Model.productUser.instagram" target="_blank">
+                            <img data-toggle="tooltip" src="~/image/socialicons/instagram.png" alt="İnstagram" title="" data-original-title="Pinterest">
+                        </a>
+                        <a href="@Model.productUser.website" target="_blank">
+                            <img data-toggle="tooltip" src="~/image/socialicons/rss.png" alt="RSS" title="" data-original-title="RSS">
+                        </a>
+                    </div>
+                </p>
+                <hr />
+            </div>
+
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            @if (Model.Products.Count != 0)
+            {
+                @foreach (var product in Model.Products)
+                {
+                    <div class="product-layout product-grid col-lg-5ths col-md-5ths col-sm-3 col-xs-12">
+                        <div class="product-thumb">
+                            <div class="image slideshow single-slider  owl-carousel">
+                                <a href="~/product/@product.seoTitle">
+                                    <img class="img-responsive" src="~/UserFiles/product/@product.productPhoto" alt="@product.seoTitle " title="@product.title">
+                                </a>
+                            </div>
+                            <div>
+                                <div class="caption">
+                                    <h4><a href="~/product/@product.seoTitle">@product.title</a></h4>
+                                    <p class="description">
+                                        @product.content.Substring(0).ToString();
+                                    </p>
+                                    <p class="price"> <span class="price-new">@product.price &#x20BA;</span>  @*<span class="price-tax">Ex Tax: $1,400.00</span>*@ </p>
+                                </div>
+                                <div class="button-group">
+                                    @*<button class="btn-primary" type="button" onclick=""><span>Add to Cart</span></button>*@
+                                    <div class="add-to-links">
+                                        <button type="button" data-toggle="tooltip" title="" onclick="" data-original-title="Add to Wish List"><i class="fa fa-heart"></i> <span>Add to Wish List</span></button>
+                                        <button type="button" data-toggle="tooltip" title="" onclick="" data-original-title="Compare this Product"><i class="fa fa-exchange"></i> <span>Compare this Product</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <i>Hiç Ürün Eklenmemiş</i>
+            }
+        </div>
+        @*<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                İletişim
+            </div>*@
+    </div>
+</div>  

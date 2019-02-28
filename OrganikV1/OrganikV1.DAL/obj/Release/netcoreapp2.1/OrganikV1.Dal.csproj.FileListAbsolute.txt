@@ -1,0 +1,16 @@
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.DAL\bin\Release\netcoreapp2.1\OrganikV1.Dal.deps.json
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.DAL\bin\Release\netcoreapp2.1\OrganikV1.Dal.dll
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.DAL\bin\Release\netcoreapp2.1\OrganikV1.Dal.pdb
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.DAL\bin\Release\netcoreapp2.1\OrganikV1.Common.dll
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.DAL\bin\Release\netcoreapp2.1\OrganikV1.Core.dll
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.DAL\bin\Release\netcoreapp2.1\OrganikV1.Entities.dll
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.DAL\bin\Release\netcoreapp2.1\OrganikV1.Entities.pdb
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.DAL\bin\Release\netcoreapp2.1\OrganikV1.Common.pdb
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.DAL\bin\Release\netcoreapp2.1\OrganikV1.Core.pdb
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.DAL\obj\Release\netcoreapp2.1\OrganikV1.Dal.csprojAssemblyReference.cache
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.DAL\obj\Release\netcoreapp2.1\OrganikV1.Dal.csproj.CoreCompileInputs.cache
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.DAL\obj\Release\netcoreapp2.1\OrganikV1.Dal.AssemblyInfoInputs.cache
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.DAL\obj\Release\netcoreapp2.1\OrganikV1.Dal.AssemblyInfo.cs
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.DAL\obj\Release\netcoreapp2.1\OrganikV1.Dal.csproj.CopyComplete
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.DAL\obj\Release\netcoreapp2.1\OrganikV1.Dal.dll
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.DAL\obj\Release\netcoreapp2.1\OrganikV1.Dal.pdb

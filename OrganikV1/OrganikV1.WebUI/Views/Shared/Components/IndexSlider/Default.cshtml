@@ -1,0 +1,13 @@
+﻿@model OrganikV1.WebUI.ViewModel.HomeViewModel
+
+@if (Model.LatesProducts.Count != 0)
+{
+    foreach (var slide in Model.LatesProducts)
+    {
+        <div class="item">
+            <a href="/product/@slide.seoTitle">
+                <img class="img-responsive" src="~/UserFiles/Product/@slide.productPhoto" alt="banner 1" />
+            </a>
+        </div>
+    }
+}

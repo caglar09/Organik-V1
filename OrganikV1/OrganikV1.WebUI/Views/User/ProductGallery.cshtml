@@ -1,0 +1,58 @@
+﻿@model OrganikV1.WebUI.ViewModel.HomeViewModel
+@{
+    ViewData["Title"] = "ProductGallery";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+@if (TempData["updateStatus"] != null)
+{
+    <div class="alert alert-info">
+        @TempData["updateStatus"]
+    </div>
+}
+<div class="col-sm-12">
+    <h2 class="subtitle">Hesabına Giriş Yap</h2>
+    <form asp-action="ProductGallery" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label class="control-label" for="filePhotos">Resim seçiniz</label>
+            <input type="file" multiple name="filePhotos" id="filePhotos" class="form-control" />
+        </div>
+        <input type="submit" value="Yükle" class="btn btn-primary" />
+
+    </form>
+</div>
+<div class="clearfix"></div>
+<hr />
+<div class="row products-category">
+    @if (Model.ProductsPhoto.Count != 0)
+    {
+        foreach (var photo in Model.ProductsPhoto)
+        {
+            <div class="product-layout product-grid  col-sm-3 col-xs-6 ">
+                <div class="product-thumb">
+                    <div class="image gallery-img">
+
+                        <a href="~/UserFiles/Product/@photo.path" data-toggle="lightbox" data-gallery="galleryGrid01" data-type="image">
+                            <img class="img-responsive" src="~/UserFiles/Product/@photo.path">
+                            <div class="overlay">
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <div class="button-group">
+                            <div class="add-to-links">
+                                <a href="~/User/ProductGalleryDelete/@photo.photoId/@Model.seoTitle" data-toggle="tooltip" title="" data-original-title="Sil"><i class="fa fa-remove btn btn-danger"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <i>Hiç Ürün Eklenmemiş</i>
+    }
+
+</div>
+

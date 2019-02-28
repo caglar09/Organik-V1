@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_DetailLayout.cshtml";
+    var tdata = TempData["loginstatus"];
+}
+<script type="text/javascript" src="~/scripts/myFormValidate/control.js"></script>
+<div id="container" >
+    <div class="container">
+
+        @if (TempData["ConfirmMail"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["ConfirmMail"]
+            </div>
+        }
+      
+        @if (TempData["loginstatus"] != null)
+        {
+            <div class="alert alert-danger">
+               <i class="fa fa-remove"></i> @tdata
+            </div>
+        }
+
+        <!-- Breadcrumb End-->
+        <div class="row">
+            <!--Middle Part Start-->
+            <div id="content" class="col-sm-12">
+                <h1 class="title">Hesap Girişi</h1>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2 class="subtitle">Üye Değilmisin Misin?</h2>
+                        <p><strong>Yeni Kayıt</strong></p>
+                        <p>
+                            By creating an account you will be able to shop faster, be up to date on an order's status,
+                            and keep track of the orders you have previously made.
+                        </p>
+                        <a href="~/Account/Register" class="btn btn-primary">Kayıt Ol</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <h2 class="subtitle">Hesabına Giriş Yap</h2>
+
+                        <form name="loginForm" id="loginForm" asp-action="Login" method="post">
+                            <div class="form-group" ng-class="{'has-error':loginForm.email.$invalid}">
+                                <label class="control-label" for="email">E-Mail Address</label>
+                                <input type="text" ng-required="true" ng-model="email" name="email" value="" placeholder="E-Mail Address" id="email" class="form-control" />
+                                <span ng-if="loginForm.email.$error.required" class="text-danger">Bu Alan  boş olamaz</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="password">Password</label>
+                                <input type="password" ng-required="true" ng-model="password" name="password" value="" placeholder="Password" id="password" class="form-control" />
+                                <span ng-if="loginForm.password.$error.required" class="text-danger">Bu Alan  boş olamaz</span>
+                                <br />
+                                <a href="~/Account/ResetPassword">Şifrenizi mi unuttunuz?</a>
+                            </div>
+                            <input type="submit" ng-click="valideForm(loginForm)" value="Giriş Yap" class="btn btn-primary" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

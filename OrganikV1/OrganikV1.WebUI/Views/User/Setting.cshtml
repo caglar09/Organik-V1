@@ -1,0 +1,144 @@
+﻿@model OrganikV1.Entities.Entity.CustomUser
+@{
+    ViewData["Title"] = "Setting";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<script type="text/javascript" src="~/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="~/js/jquery-2.1.1.min.js"></script>
+
+<script>
+        $(document).ready(function () {
+            document.getElementById("Gender").value = @Model.Gender;
+          
+        });
+</script>
+@if (TempData["updateStatus"] != null)
+{
+    <div class="alert alert-info">
+        @TempData["updateStatus"]
+    </div>
+}
+
+
+<div class="product-filter">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="btn-group">
+                <a href="~/User" class="btn btn-primary">Geri</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<h1 class="title">Kişisel Bilgileriniz</h1>
+<form class="form-horizontal" method="post" asp-action="Setting">
+    <fieldset id="account">
+        <legend>Yeni Ürün Ekle</legend>
+        <div style="display: none;" class="form-group required">
+            <label class="col-sm-2 control-label">Customer Group</label>
+            <div class="col-sm-10">
+                <div class="radio">
+                    <label>
+                        <input type="radio" checked="checked" value="1" name="customer_group_id">
+                        Default
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group required">
+            <label for="Email" class="col-sm-2 control-label">E-posta Adresiniz</label>
+            <div class="col-sm-10">
+                <input type="text" disabled="disabled" class="form-control" id="Email" placeholder="E-posta Adresiniz.." name="Email" value="@Model.Email">
+            </div>
+        </div>
+        <div class="form-group required">
+            <label for="UserName" class="col-sm-2 control-label">Kullanıcı Adınız</label>
+            <div class="col-sm-10">
+                <input type="text" disabled="disabled" class="form-control" id="UserName" placeholder="Kullanıcı adınız.." name="UserName" value="@Model.UserName">
+            </div>
+        </div>
+        <div class="form-group required">
+            <label for="name" class="col-sm-2 control-label">Adınız</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" placeholder="Adınız.." name="name" value="@Model.name">
+            </div>
+        </div>
+        <div class="form-group required">
+            <label for="lastname" class="col-sm-2 control-label">Soyadınız</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="lastname" placeholder="Soyadınız.." name="lastname" value="@Model.lastname">
+            </div>
+        </div>
+        <div class="form-group required">
+            <label for="Age" class="col-sm-2 control-label">Yaşınız</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="Age" placeholder="Soyadınız.." name="Age" value="@Model.Age">
+            </div>
+        </div>
+        <div class="form-group required">
+            <label for="editor1" class="col-sm-2 control-label">Profil Açıklaması</label>
+            <div class="col-sm-10">
+                <textarea name="Content" id="editor1" rows="10">@Model.Content</textarea>
+            </div>
+        </div>
+
+        <div class="form-group required">
+            <label for="Adress" class="col-sm-2 control-label">Adress</label>
+            <div class="col-sm-10">
+                <textarea name="Adress" class="form-control" id="Adress" rows="10" style="width: 100%;">@Model.Adress</textarea>
+            </div>
+        </div>
+        <div class="form-group required">
+            <label for="Gender" class="col-sm-2 control-label">Cinsiyet</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="Gender" name="Gender">
+                    <option value="1">Erkek</option>
+                    <option value="2">Kadın</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group required">
+            <label for="facebook" class="col-sm-2 control-label">Facebook</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="" placeholder="facebook adresiniz.." name="facebook" value="@Model.facebook">
+            </div>
+        </div>
+        <div class="form-group required">
+            <label for="twitter" class="col-sm-2 control-label">Twitter</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" placeholder="twitter adresiniz.." name="twitter" value="@Model.twitter">
+            </div>
+        </div>
+        <div class="form-group required">
+            <label for="instagram" class="col-sm-2 control-label">İnstagram</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="instagram" placeholder="instagram adresiniz.." name="instagram" value="@Model.instagram">
+            </div>
+        </div>
+
+        <div class="form-group required">
+            <label for="website" class="col-sm-2 control-label">Web Siteniz</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="website" placeholder="websiteniz var url" name="website" value="@Model.website">
+            </div>
+        </div>
+
+
+
+    </fieldset>
+    <div class="buttons">
+        <div class="pull-right">
+
+            <input type="submit" class="btn btn-primary" value="Güncelle">
+        </div>
+    </div>
+</form>
+
+<script>
+    CKEDITOR.replace('editor1');
+
+
+</script>

@@ -1,0 +1,22 @@
+﻿@model OrganikV1.Entities.Entity.CustomUser
+<div class="profilPic">
+    <img src="~/UserFiles/User/@Model.userPhoto.ToString()" alt="small banner" class="img-responsive" style="max-height: 250px;"/>
+    <div class="overlay">
+        <div class="form-group">
+            <a href="~/User/Photo" class="btn btn-primary">Profil Fotoğraf güncelle</a>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="box-category">
+    <ul id="cat_accordion">
+        <li class="cutom-parent-li">
+            <a href="~/User/Setting" class="cutom-parent">Ayarlar</a>
+        </li>
+        <li class="cutom-parent-li">
+            <a href="~/User/Product" class="cutom-parent">Ürünler</a>
+        </li>
+    </ul>
+</div>

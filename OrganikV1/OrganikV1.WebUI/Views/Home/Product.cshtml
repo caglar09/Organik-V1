@@ -1,0 +1,247 @@
+﻿@model OrganikV1.WebUI.ViewModel.HomeViewModel
+@{
+    ViewData["Title"] = "Ürün Detay ";
+    Layout = "~/Views/Shared/_DetailLayout.cshtml";
+}
+<div id="content" class="col-sm-9" style="border-right:1px solid #d6d6d6">
+    <div id="content" class="col-sm-12">
+        <div itemscope="" itemtype="http://schema.org/Product">
+            <h1 class="title" itemprop="name">Laptop Silver black</h1>
+            <div class="row product-info">
+                <div class="col-sm-7">
+                    <div class="image">
+                        <div style="height:350px;width:350px;" class="zoomWrapper">
+                            <img class="img-responsive" itemprop="image" id="zoom_01" src="~/UserFiles/Product/@Model.ProductsOne.productPhoto"
+                                 title="@Model.ProductsOne.title" alt="@Model.ProductsOne.seoTitle" data-zoom-image="../../UserFiles/Product/@Model.ProductsOne.productPhoto" style="position: absolute;">
+                            @*<div style="background: url('../../image/progress.gif') center center no-repeat; height: 350px; width: 350px; z-index: 2000; position: absolute; display: none;"></div>
+                                <div style="background:url('../../image/progress.gif') center center no-repeat; height: 350px; width: 350px; z-index: 2000; position: absolute; display: none;"></div>
+                                <div style="background: url('../../image/progress.gif') center center no-repeat; height: 350px; width: 350px; z-index: 2000; position: absolute; display: none;"></div>*@
+                        </div>
+                    </div>
+                    <div class="center-block text-center"><span class="zoom-gallery"><i class="fa fa-search"></i> Click image for Gallery</span></div>
+                    <div class="image-additional" id="gallery_01">
+                        <a class="thumbnail" href="#" data-zoom-image="../../UserFiles/Product/@Model.ProductsOne.productPhoto" data-image="../../UserFiles/Product/@Model.ProductsOne.productPhoto" title="@Model.ProductsOne.title">
+                            <img src="~/UserFiles/Product/@Model.ProductsOne.productPhoto" title="@Model.ProductsOne.title" alt="@Model.ProductsOne.seoTitle">
+                        </a>
+                        @foreach (var item in Model.ProductsPhoto)
+                        {
+                            <a class="thumbnail" href="#" data-zoom-image="../../UserFiles/Product/@item.path" data-image="../../UserFiles/Product/@item.path" title="@Model.ProductsOne.title">
+                                <img src="~/UserFiles/product/@item.path" title="@Model.ProductsOne.title" alt="@Model.ProductsOne.seoTitle">
+                            </a>
+                        }
+
+
+
+
+                    </div>
+
+                    @*<a class="thumbnail" href="#" data-zoom-image="image/product/macbook_air_1-500x500.jpg" data-image="image/product/macbook_air_1-350x350.jpg" title="Laptop Silver black">
+                            <img src="image/product/macbook_air_1-66x66.jpg" title="Laptop Silver black" alt="Laptop Silver black">
+                        </a>*@
+                </div>
+                <div class="col-sm-5">
+                    <ul class="list-unstyled description">
+                        <li><b>Başlık:</b> <a href="#"><span itemprop="brand">@Model.ProductsOne.title</span></a></li>
+                        <li><b>Stok adeti:</b> @Model.ProductsOne.stockCount @Model.ProductsOne.priceType</li>
+                        <li>
+                            <b>Availability:</b>
+                            @if (Model.ProductsOne.status != false)
+                            {
+                                <span class="instock">Stokta var</span>
+
+                            }
+                            else
+                            {
+                                <span class="nostock">Stokta yok</span>
+                            }
+                        </li>
+                    </ul>
+                    <ul class="price-box">
+                        <li class="price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+                            <span itemprop="price">
+                                @Model.ProductsOne.price  &#x20BA;
+                                <span itemprop="availability" content=""></span>
+                            </span>
+                        </li>
+                        <li></li>
+                        <li><b>@Model.ProductsOne.priceType</b> şeklinde satış yapılmaktadır</li>
+                    </ul>
+
+                    <div class="rating" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+                        <meta itemprop="ratingValue" content="0">
+                        <p><span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span> <a onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;" href=""><span itemprop="reviewCount">1 reviews</span></a> / <a onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;" href="">Write a review</a></p>
+                    </div>
+                    <hr>
+                    <!-- AddThis Button BEGIN -->
+                    <div class="addthis_toolbox addthis_default_style">
+                        <div id="fb-root"></div>
+                        <div class="fb-share-button" data-href="https://localhost:44300/product/@Model.ProductsOne.seoTitle" data-layout="button" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://localhost:44300/product/@Model.ProductsOne.seoTitle" class="fb-xfbml-parse-ignore">Paylaş</a></div>
+
+                        <a class="addthis_button_tweet"></a>
+                        <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+
+                        <a class="addthis_counter addthis_pill_style"></a>
+                    </div>
+                    <script>
+                        (function (d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id)) return;
+                            js = d.createElement(s); js.id = id;
+                            js.src = 'https://connect.facebook.net/tr_TR/sdk.js#xfbml=1&version=v3.2&appId=2023584507893963&autoLogAppEvents=1';
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+                    <script id="twitter-wjs" src="https://platform.twitter.com/widgets.js"></script>
+                    <script id="facebook-jssdk" src="//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.4"></script>
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-514863386b357649"></script>
+                    <!-- AddThis Button END -->
+                </div>
+            </div>
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab-description" data-toggle="tab" aria-expanded="true">Açıklama</a></li>
+
+                <li class=""><a href="#tab-review" data-toggle="tab" aria-expanded="false">Yorumlar (@Model.Comments.Count)</a></li>
+            </ul>
+            <div class="tab-content">
+                <div itemprop="description" id="tab-description" class="tab-pane active">
+                    <div>
+                        @Html.Raw(Model.ProductsOne.content)
+
+                    </div>
+                </div>
+
+                <div id="tab-review" class="tab-pane">
+                    <div id="review">
+                        <div>
+                            <br />
+                            @foreach (var comment in Model.Comments.OrderByDescending(x=>x.commentDate))
+                            {
+                                <table class="table table-striped table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 50%;"><strong><span>@comment.name  @comment.lastname</span></strong></td>
+                                            <td class="text-right"><span>@comment.commentDate</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                @Html.Raw(comment.commentContent)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            }
+
+                        </div>
+                        <div class="text-right"></div>
+                    </div>
+                    <form class="form-horizontal" method="post" asp-action="AddComment">
+                        <input type="hidden" name="uRl" value="@Model.ProductsOne.seoTitle" />
+                        <input type="hidden" name="productId" value="@Model.ProductsOne.productId" />
+                        <input type="hidden" name="userId" value="@Model.ProductsOne.userId" />
+                        <h2>Yorum Yaz</h2>
+                        <div class="form-group required">
+                            <div class="col-sm-6">
+                                <label for="input-name" class="control-label">Adınız</label>
+                                <input type="text" class="form-control" id="input-name" value="" name="name">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="input-lastname" class="control-label">Soyadınız</label>
+                                <input type="text" class="form-control" id="input-lastname" value="" name="lastname">
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <div class="col-sm-12">
+                                <label for="input-name" class="control-label">Email Adresiniz</label>
+                                <input type="email" class="form-control" id="input-name" required name="email">
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <div class="col-sm-12">
+                                <label for="input-review" class="control-label">Your Review</label>
+                                <textarea class="form-control" id="input-review" rows="5" name="commentContent"></textarea>
+                                <div class="help-block"><span class="text-danger">Note:</span> HTML is not translated!</div>
+                            </div>
+                        </div>
+
+                        <div class="buttons">
+                            <div class="pull-right">
+                                <input class="btn btn-primary" id="button-review" type="submit" value="Yorum Gönder">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <h3 class="subtitle">Related Products</h3>
+            <div class="owl-carousel related_pro owl-theme" style="opacity: 1; display: block;">
+                <div class="owl-wrapper-outer">
+                    <div class="owl-wrapper" style="width: 2040px; left: 0px; display: block;">
+                        <div class="owl-item" style="width: 170px;">
+                            <div class="product-thumb">
+                                <div class="image"><a href="product.html"><img src="~/UserFiles/Product/samsung_tab_1-200x200.jpg" alt="Aspire Ultrabook Laptop" title="Aspire Ultrabook Laptop" class="img-responsive"></a></div>
+                                <div class="caption">
+                                    <h4><a href="product.html">Aspire Ultrabook Laptop</a></h4>
+                                    <p class="price"> <span class="price-new">$230.00</span>  </p>
+
+                                </div>
+                                <div class="button-group">
+
+                                    <div class="add-to-links">
+                                        <button type="button" data-toggle="tooltip" title="" onclick="" data-original-title="Add to wishlist"><i class="fa fa-heart"></i></button>
+                                        <button type="button" data-toggle="tooltip" title="" onclick="" data-original-title="Add to compare"><i class="fa fa-exchange"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+                @*<div class="owl-controls clickable">
+                    <div class="owl-pagination">
+                        <div class="owl-page active">
+                            <span class=""></span>
+                        </div>
+                        <div class="owl-page">
+                            <span class=""></span>
+                        </div>
+                    </div>
+                    <div class="owl-buttons">
+                        <div class="owl-prev">
+                            <i class="fa fa-angle-left"></i>
+                        </div>
+                        <div class="owl-next">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+<aside id="column-left" class="col-sm-3 hidden-xs">
+    <div class="product-thumb text-center">
+        <div class="image">
+            <a href="~/UserDetail/@Model.productUser.Id">
+                <img src="~/UserFiles/User/@Model.productUser.userPhoto" alt="@Model.productUser.name" title="@Model.productUser.name" class="img-responsive">
+            </a>
+        </div>
+        <div class="caption">
+            <h4><a href="~/UserDetail/@Model.productUser.Id">@Model.productUser.name  @Model.productUser.lastname</a></h4>
+            <p class="price"> $134.00 </p>
+            <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
+        </div>
+        <div class="button-group">
+            <button class="btn-primary" type="button" onclick=""><span>Add to Cart</span></button>
+            <div class="add-to-links">
+                <button type="button" data-toggle="tooltip" title="" onclick="" data-original-title="Add to wishlist"><i class="fa fa-heart"></i></button>
+                <button type="button" data-toggle="tooltip" title="" onclick="" data-original-title="Add to compare"><i class="fa fa-exchange"></i></button>
+            </div>
+        </div>
+    </div>
+
+</aside>
+

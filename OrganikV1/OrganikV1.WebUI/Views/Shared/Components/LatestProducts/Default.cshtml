@@ -1,0 +1,33 @@
+﻿@model OrganikV1.WebUI.ViewModel.HomeViewModel
+
+@if (Model.LatesProducts.Count != 0)
+{
+    @foreach (var item in Model.LatesProducts)
+    {
+        <div class="product-thumb clearfix">
+            <div class="image">
+                <a href="~/product/@item.seoTitle">
+                    <img src="~/UserFiles/Product/@item.productPhoto" alt="@item.seoTitle" title="@item.title" class="img-responsive" />
+                </a>
+            </div>
+            <div class="caption">
+                <h4>
+                    <a href="~/product/@item.seoTitle">@item.title</a>
+                </h4>
+                <p class="price">@item.price &#x20BA; | @item.priceType fiyatı</p>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="product-thumb clearfix">
+
+        <div class="caption">
+            <h4>
+                <a>Hiç ürün Yok</a>
+            </h4>
+
+        </div>
+    </div>
+}

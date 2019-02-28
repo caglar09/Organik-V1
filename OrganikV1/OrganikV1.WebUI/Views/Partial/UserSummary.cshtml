@@ -1,0 +1,38 @@
+﻿@using OrganikV1.Business.Concrete
+@if (User.Identity.IsAuthenticated == true)
+{
+<li>
+    <div id="cart">
+        <a  data-toggle="dropdown" data-loading-text="Loading..." class="heading dropdown-toggle" style="color:#fff !important;" aria-expanded="true">
+            <span class=" ">@User.Identity.Name</span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="~/User">
+                  <i class="fa fa-user"></i> Hesabıma Git
+                </a>
+            </li>
+            <li>
+                <a href="~/Account/SignOut">
+                   <i class="fa fa-sign-out"></i> Çıkış Yap
+                </a>
+            </li>
+
+        </ul>
+    </div>
+   
+    @*<ul class="dropdown-menu">
+        <li class="column col-lg-4 col-md-6">
+            
+        </li>
+
+    </ul>*@
+</li>
+
+}
+else
+{
+    <li><a href="~/Account/Login"><i class="fa fa-sign-in"></i> Login</a></li>
+    <li><a href="~/Account/Register"><i class="fa fa-key"></i> Register</a></li>
+}
+

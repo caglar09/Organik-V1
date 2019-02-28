@@ -1,0 +1,9 @@
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.Common\bin\Debug\netcoreapp2.1\OrganikV1.Common.deps.json
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.Common\bin\Debug\netcoreapp2.1\OrganikV1.Common.dll
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.Common\bin\Debug\netcoreapp2.1\OrganikV1.Common.pdb
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.Common\obj\Debug\netcoreapp2.1\OrganikV1.Common.csproj.CoreCompileInputs.cache
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.Common\obj\Debug\netcoreapp2.1\OrganikV1.Common.AssemblyInfoInputs.cache
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.Common\obj\Debug\netcoreapp2.1\OrganikV1.Common.AssemblyInfo.cs
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.Common\obj\Debug\netcoreapp2.1\OrganikV1.Common.dll
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.Common\obj\Debug\netcoreapp2.1\OrganikV1.Common.pdb
+C:\Users\cglr1\source\Workspaces\OrganikV1\OrganikV1\OrganikV1.Common\obj\Debug\netcoreapp2.1\OrganikV1.Common.csprojAssemblyReference.cache

@@ -1,0 +1,308 @@
+﻿@model OrganikV1.WebUI.ViewModel.HomeViewModel
+@using OrganikV1.Common
+
+@{
+    ViewData["Title"] = "Productupdate";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<script type="text/javascript" src="~/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="~/js/jquery-2.1.1.min.js"></script>
+
+@if (Model.ProductsOne != null)
+{
+    <script>
+        $(document).ready(function () {
+            document.getElementById("catId").value = @Model.ProductsOne.catId.ToString();
+            document.getElementById("priceType").value = "@Model.ProductsOne.priceType.ToString()";
+            document.getElementById("status").value = "@Model.ProductsOne.status.ToString()";
+            document.getElementById("stockStatus").value = "@Model.ProductsOne.stockStatus.ToString()";
+            document.getElementById("cinsispecies").value = "@Model.ProductsOne.cinsispecies.ToString()";
+            document.getElementById("province").value = "@Model.ProductsOne.province.ToString()";
+        });
+    </script>
+}
+
+<div class="product-filter">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="btn-group">
+                <a href="~/User/Product" class="btn btn-primary">Geri</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@if (Model.ProductsOne != null)
+{
+    <h1 class="title">Ürün Güncelle</h1>
+    @if (TempData["updateStatus"] != null)
+    {
+        <div class="alert alert-info">
+            @TempData["updateStatus"]
+        </div>
+    }
+    <form class="form-horizontal" method="post" asp-action="Productupdate" enctype="multipart/form-data">
+        <fieldset id="account">
+            @*<legend>Your Personal Details</legend>*@
+            <div style="display: none;" class="form-group required">
+                <label class="col-sm-2 control-label">Customer Group</label>
+                <div class="col-sm-10">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" checked="checked" value="1" name="customer_group_id">
+                            Default
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" value="@Model.ProductsOne.productId" name="productId" id="productId">
+            <div class="form-group required">
+                <label for="catId" class="col-sm-2 control-label">Kategori</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="catId" name="catId">
+                        @foreach (var cat in Model.Categories)
+                        {
+                            string ad = cat.catName;
+                            int id = cat.catId;
+                            string se = (id == Model.ProductsOne.catId ? "selected" : "");
+
+                            <option value="@id">@ad</option>
+
+                        }
+
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group required">
+                <label for="title" class="col-sm-2 control-label">Ürün Adı</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="title" placeholder="Ürün Başlığı" value="@Model.ProductsOne.title" name="title">
+                </div>
+            </div>
+
+
+            <div class="form-group required">
+                <label for="cinsispecies" class="col-sm-2 control-label">Ürün tipi</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="cinsispecies" name="cinsispecies">
+                        <option value='Sivi'>Sıvı</option>
+                        <option value='Kati'>Katı</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label for="province" class="col-sm-2 control-label">Şehir</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="province" name="province">
+                        <option value="AYDIN">AYDIN</option>
+                        <option value="ISTANBUL">ISTANBUL</option>
+                        <option value="IZMIR">IZMIR</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label for="editor1" class="col-sm-2 control-label">Ürün İçeriği</label>
+                <div class="col-sm-10">
+                    <textarea name="content" id="editor1" rows="10">@Model.ProductsOne.content</textarea>
+                </div>
+            </div>
+
+
+            <div class="form-group required">
+                <label for="stockCount" class="col-sm-2 control-label">Stok Adeti</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="stockCount" placeholder="Stok Adeti giriniz" value="@Model.ProductsOne.stockCount" name="stockCount">
+                </div>
+            </div>
+            <div class="form-group required">
+                <label for="stockStatus" class="col-sm-2 control-label">Stok Durumu</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="stockStatus" name="stockStatus">
+                        <option value="True">Stokta var</option>
+                        <option value="False">Stokta yok</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group required">
+                <label for="status" class="col-sm-2 control-label">Ürün Satış Durumu</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="status" name="status">
+                        <option value="True">Satışa çıksın</option>
+                        <option value="False">Satışdan kalksın</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label for="priceType" class="col-sm-2 control-label">Ürün Satış Türü</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="priceType" name="priceType">
+                        <option value="kg">Kilogram</option>
+                        <option value="gr">Gram</option>
+                        <option value="lt">Litre</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label for="price" class="col-sm-2 control-label">Ürün Fiyatı</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="price" placeholder="Ürün Fiyatı" value="@Model.ProductsOne.price" name="price">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2  control-label" for="productPhoto">Ürün  Fotoğrafı</label>
+                <div class="col-sm-10">
+                    @if (Model.ProductsOne.productPhoto != null)
+                    {
+                        <img src="~/UserFiles/Product/@Model.ProductsOne.productPhoto" alt="Alternate Text" width="400" />
+                    }
+                    <input type="file" name="productPhoto" value="@Model.ProductsOne.productPhoto" id="productPhoto" class="form-control" />
+                </div>
+            </div>
+
+        </fieldset>
+        <div class="buttons">
+            <div class="pull-right">
+
+                <input type="submit" class="btn btn-primary" value="Continue">
+            </div>
+        </div>
+    </form>
+}
+@if (Model.ProductsOne == null)
+{
+    <h1 class="title">Yeni Ürün ekle</h1>
+    <form class="form-horizontal" method="post" asp-action="ProductAdd" enctype="multipart/form-data">
+        <fieldset id="account">
+            <legend>Yeni Ürün Ekle</legend>
+            <div style="display: none;" class="form-group required">
+                <label class="col-sm-2 control-label">Customer Group</label>
+                <div class="col-sm-10">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" checked="checked" value="1" name="customer_group_id">
+                            Default
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="productId" id="productId">
+            <div class="form-group required">
+                <label for="catId" class="col-sm-2 control-label">Kategori</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="catId" name="catId">
+                        @foreach (var cat in Model.Categories)
+                        {
+                            string ad = cat.catName;
+                            int id = cat.catId;
+
+                            <option value="@id">@ad</option>
+
+                        }
+
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group required">
+                <label for="title" class="col-sm-2 control-label">Ürün Adı</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="title" placeholder="Ürün Başlığı" name="title">
+                </div>
+            </div>
+
+
+            <div class="form-group required">
+                <label for="cinsispecies" class="col-sm-2 control-label">Ürün tipi</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="cinsispecies" name="cinsispecies">
+                        <option value='Sivi'>Sıvı</option>
+                        <option value='Kati'>Katı</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label for="province" class="col-sm-2 control-label">Şehir</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="province" name="province">
+                        <option value="AYDIN">AYDIN</option>
+                        <option value="ISTANBUL">ISTANBUL</option>
+                        <option value="IZMIR">IZMIR</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label for="editor1" class="col-sm-2 control-label">Ürün İçeriği</label>
+                <div class="col-sm-10">
+                    <textarea name="content" id="editor1" rows="10"></textarea>
+                </div>
+            </div>
+
+
+            <div class="form-group required">
+                <label for="stockCount" class="col-sm-2 control-label">Stok Adeti</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="stockCount" placeholder="Stok Adeti giriniz" name="stockCount">
+                </div>
+            </div>
+            <div class="form-group required">
+                <label for="stockStatus" class="col-sm-2 control-label">Stok Durumu</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="stockStatus" name="stockStatus">
+                        <option value="True">Stokta var</option>
+                        <option value="False">Stokta yok</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group required">
+                <label for="status" class="col-sm-2 control-label">Ürün Satış Durumu</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="status" name="status">
+                        <option value="True">Satışa çıksın</option>
+                        <option value="False">Satışdan kalksın</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label for="priceType" class="col-sm-2 control-label">Ürün Satış Türü</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="priceType" name="priceType">
+                        <option value="kg">Kilogram</option>
+                        <option value="gr">Gram</option>
+                        <option value="lt">Litre</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label for="price" class="col-sm-2 control-label">Ürün Fiyatı</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="price" placeholder="Ürün Fiyatı" name="price">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2  control-label" for="productPhoto">Ürün  Fotoğrafı</label>
+                <div class="col-sm-10">
+                    <input type="file" ng-required="true" name="productPhoto" id="productPhoto" class="form-control" />
+                </div>
+            </div>
+
+        </fieldset>
+        <div class="buttons">
+            <div class="pull-right">
+
+                <input type="submit" class="btn btn-primary" value="Continue">
+            </div>
+        </div>
+    </form>
+}
+<script>
+    CKEDITOR.replace('editor1');
+
+
+</script>

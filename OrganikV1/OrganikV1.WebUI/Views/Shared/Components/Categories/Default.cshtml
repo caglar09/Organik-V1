@@ -1,0 +1,29 @@
+﻿@model OrganikV1.WebUI.ViewModel.HomeViewModel
+@{
+
+}
+<ul id="cat_accordion"> 
+    
+    @foreach (var item in Model.Categories.Where(x => x.altCatId == 0))
+    {
+        var subCat = Model.Categories.Where(x => x.altCatId != 0);
+        <li>
+            <a href="~/@item.catId"> @item.catName.ToUpper() </a><span class="down"></span>
+           
+                <ul >
+                    @foreach (var altCat in subCat)
+                    {
+
+                        @if (altCat.altCatId == item.catId)
+                        {
+                            <li> <a href="~/@altCat.catId">@altCat.catName.ToUpper()</a></li>
+                        }
+
+                    }
+                </ul>
+         
+        </li>
+
+    }
+
+</ul>

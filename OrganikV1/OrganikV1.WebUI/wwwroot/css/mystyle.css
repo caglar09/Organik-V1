@@ -1,0 +1,171 @@
+﻿aside .profilPic {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+    background: transparent !important;
+    border: none;
+}
+
+    aside .profilPic .overlay {
+        width: 100%;
+        transition: 1s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+        
+    }
+
+.profilPic:hover .overlay{
+    opacity:1;
+}
+
+aside .profilPic .img-responsive {
+    display: inline-block;
+}
+
+.gallery-img {
+    position: relative;
+}
+
+    .gallery-img:hover {
+        box-shadow: 0px 20px 35px 0px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-img .overlay {
+        position: absolute;
+        left: 25%;
+        top: 25%;
+        content: "";
+        width: 25%;
+        height: 25%;
+        background: rgba(255,191,67,0.7);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .gallery-img:hover .overlay {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+    }
+
+    .gallery-img:hover .overlay,
+    .gallery-img:hover:before,
+    .gallery-img:hover:after {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .gallery-img,
+    .gallery-img::before,
+    .gallery-img::after,
+    .gallery-img .overlay {
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+        .gallery-img::before,
+        .gallery-img::after {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            content: "";
+            width: 2px;
+            height: 40px;
+            margin-top: -21px;
+            margin-left: -2px;
+            background: #FFF;
+            opacity: 0;
+            z-index: 2;
+        }
+
+        .gallery-img::after {
+            width: 40px;
+            height: 2px;
+            margin-left: -21px;
+            margin-top: -2px;
+        }
+
+.col-xs-5ths, .col-sm-5ths, .col-md-5ths, .col-lg-5ths {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.pags {
+    list-style: none;
+    text-align: center;
+}
+
+    .pags li {
+        display: inline-block;
+        margin-right: 5px;
+        /*background-color:#0094ff;*/
+        padding: 12px 12px;
+        color: #fff;
+        font-size: 10px;
+    }
+
+        .pags li a {
+            color: #0094ff;
+        }
+
+    .pags .fa {
+        color: #0094ff;
+    }
+
+    .pags .active {
+        background-color: #3e7cb4;
+    }
+
+        .pags .active a {
+            color: #fff;
+        }
+
+.owl-carousel.single-slider .owl-controls .owl-buttons .owl-prev, .owl-carousel.single-slider .owl-controls .owl-buttons .owl-next {
+    display: none !important;
+}
+
+.product-info .zoomWrapper {
+    display: block;
+}
+.product-info .image div {
+    height: 350px;
+    width: 100%;
+}
+
+    .product-info .image div div {
+        height: 100%;
+        width: auto;
+    }
+        .product-info .image div div image {
+            width: auto !important;
+            height: 100% !important;
+        }
+
+#content .tab-content {
+    padding: 0px !important;
+    /*margin-bottom: 20px !important;*/
+    z-index: 2;
+    border: none;
+    /* border-top: 0px; */
+}
+
+.box-category #cat_accordion li.cutom-parent-li.active {
+    font-weight: 900;
+    
+}
+    .box-category #cat_accordion li.cutom-parent-li.active a {
+        color: #3e7cb4 !important;
+        text-decoration:none;
+    }

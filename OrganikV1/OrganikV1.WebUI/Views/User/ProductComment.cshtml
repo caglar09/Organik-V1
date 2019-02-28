@@ -1,0 +1,35 @@
+﻿@model OrganikV1.WebUI.ViewModel.HomeViewModel
+
+@{
+    ViewData["Title"] = "ProductComment";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    int i = 1;
+    var headerPath = Context.Request.Path;
+    var a = Context.Response.StatusCode;
+
+
+}
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Ad - Soyad</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var comment in Model.Comments.OrderByDescending(x => x.commentDate))
+            {
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@comment.name  @comment.lastname</td>
+                    <td><a href="@headerPath/@comment.commentId" class="btn btn-danger">Spam Bildir !</a></td>
+                </tr>
+                i++;
+            }
+
+        </tbody>
+    </table>
+</div>
